@@ -8,10 +8,12 @@ using UnityEditor;
 public class CubeControllerEditor : Editor {
 	SerializedProperty myPosition;
 	SerializedProperty headScale;
+	SerializedProperty color;
 
 	void OnEnable(){
 		myPosition = serializedObject.FindProperty ("myPosition");
 		headScale = serializedObject.FindProperty ("headScale");
+		color = serializedObject.FindProperty ("color");
 	}
 
 	public override void OnInspectorGUI(){
@@ -19,6 +21,7 @@ public class CubeControllerEditor : Editor {
 		EditorGUILayout.PropertyField (myPosition);
 		EditorGUILayout.LabelField ("In put this here");
 		EditorGUILayout.Slider (headScale, 1f, 3f);
+		EditorGUILayout.ColorField (color.colorValue);
 		serializedObject.ApplyModifiedProperties ();
 	}
 }
