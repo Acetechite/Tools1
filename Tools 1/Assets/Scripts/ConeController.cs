@@ -4,11 +4,12 @@ using UnityEngine;
 
 [ExecuteInEditMode]
 public class ConeController : MonoBehaviour {
-
-	public Vector3 myPosition;
+    
 	public Renderer rend;
 	public Material myMaterial;
-	public float myScale;
+	public float myScaleX;
+    public float myScaleY;
+    public float myScaleZ;
 
 	//Stats
 	public float xpValue;
@@ -25,8 +26,7 @@ public class ConeController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position = new Vector3 (myPosition.x, myPosition.y, myPosition.z);
-		transform.localScale = new Vector3 (transform.localScale.x, myScale, transform.localScale.z);
+		transform.localScale = new Vector3 (myScaleX, myScaleY, myScaleZ);
 		rend.sharedMaterial = myMaterial;
 
 		//Set EXP
